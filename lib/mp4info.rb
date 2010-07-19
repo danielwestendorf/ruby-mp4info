@@ -165,6 +165,7 @@ class MP4Info
       
       printf "%s%s: %d bytes\n", ' ' * ( 2 * level ), id, size if $DEBUG
       
+      puts id
       if (@data_atoms.has_key?(id))
         parse_data io_stream, level, size, id
       elsif (@other_atoms.has_key?(id))
