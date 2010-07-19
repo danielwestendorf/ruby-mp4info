@@ -155,9 +155,11 @@ class MP4Info
         raise "Parse error"
       end
       
-      if id[0] == 169 
-        # strip copyright sign at the beginning
-        id = id[1..-1]
+      # strip copyright sign at the beginning
+      temp_id = id
+      id = ""
+      temp_id.each_byte do |b|
+        id += b.chr unless b == 169
       end
       id = id.upcase
       
